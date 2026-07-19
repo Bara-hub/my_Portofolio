@@ -1,0 +1,493 @@
+²<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bara Mamadou Lamine NDIAYE | Portfolio IT</title>
+    <meta name="description"
+        content="Portfolio de Bara Mamadou Lamine NDIAYE, passionné des systèmes, réseaux et de la sécurité.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Background Animation Canvas -->
+    <canvas id="tech-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="glass-nav" id="navbar">
+        <div class="nav-container">
+            <a href="#accueil" class="logo">
+                <span class="icon">⚡</span>
+                <span class="text">BML<span class="highlight">NDIAYE</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#parcours" class="nav-link">Parcours</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <header id="accueil" class="section hero">
+            <div class="container">
+                <div class="hero-content glass-panel">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="title">root@bara-ndiaye:~</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="command">> whoami</p>
+                        <h1 class="main-title">Bara Mamadou <span class="gradient-text">Lamine NDIAYE</span></h1>
+                        <p class="subtitle">Étudiant en Réseaux & Systèmes Informatiques</p>
+                        <p class="description">
+                            Administrateur de systèmes d'information passionné, alliant expertise technique et
+                            expérience en gestion de projet. Motivé par l'amélioration continue, je suis prêt à mettre
+                            mon esprit d'équipe et ma capacité d'analyse au service de solutions performantes et
+                            adaptées aux utilisateurs.
+                        </p>
+                        <!-- Atouts and soft skills quickly highlighted -->
+                        <div class="tech-tags mb-lg">
+                            <span>✨ Esprit d'équipe</span>
+                            <span>👂 Sens de l'écoute</span>
+                            <span>🔥 Motivé</span>
+                            <span>🛡️ Rigoureux</span>
+                            <span>🤝 Apte à aider</span>
+                        </div>
+
+                        <div class="hero-actions">
+                            <a href="#projets" class="btn btn-primary">Explorer mes projets <span
+                                    class="arrow">→</span></a>
+                            <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                            <a href="cv/CV de BML - FR.pdf" target="_blank" class="btn btn-secondary"
+                                style="border-color: var(--neon-pink); color: var(--neon-pink);">📄 Télécharger mon
+                                CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Skills Section -->
+        <section id="competences" class="section dark-section">
+            <div class="container container-lg">
+                <div class="section-heading">
+                    <h2 class="section-title">Compétences <span class="highlight">IT</span></h2>
+                    <p class="section-subtitle">Outils, Systèmes & Concepts Maîtrisés</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Infrastructures -->
+                    <div class="skill-card glass-panel">
+                        <div class="skill-icon neon-blue">🏢</div>
+                        <h3>Concevoir des infrastructures modernes</h3>
+                        <p>Architecture réseaux LAN/WAN, datacenter virtuel et haute disponibilité.</p>
+                        <div class="tech-tags">
+                            <span>Windows Server</span>
+                            <span>Linux (Debian/RHEL)</span>
+                            <span>VMware ESXi</span>
+                            <span>Proxmox VE</span>
+                            <span>Routeurs Cisco</span>
+                            <span>Réseaux TCP/IP</span>
+                        </div>
+                    </div>
+
+                    <!-- Automatisation -->
+                    <div class="skill-card glass-panel">
+                        <div class="skill-icon neon-pink">⚙️</div>
+                        <h3>Automatiser les systèmes et réseaux</h3>
+                        <p>Infrastructure as Code, déploiement rapide et scripts d'administration.</p>
+                        <div class="tech-tags">
+                            <span>Bash / Shell</span>
+                            <span>PowerShell</span>
+                            <span>Python (Scripting)</span>
+                            <span>Ansible / Terraform</span>
+                            <span>Planification (Cron)</span>
+                        </div>
+                    </div>
+
+                    <!-- Cloud & Apps -->
+                    <div class="skill-card glass-panel">
+                        <div class="skill-icon neon-purple">☁️</div>
+                        <h3>Gérer le cloud et les applications</h3>
+                        <p>Déploiement logiciel, administration de services web et hébergement.</p>
+                        <div class="tech-tags">
+                            <span>Cloud Computing</span>
+                            <span>Docker / Conteneurs</span>
+                            <span>Web (HTML/CSS/JS)</span>
+                            <span>Node.js / PHP</span>
+                            <span>Flutter</span>
+                            <span>Java</span>
+                        </div>
+                    </div>
+
+                    <!-- Données -->
+                    <div class="skill-card glass-panel">
+                        <div class="skill-icon neon-green">💾</div>
+                        <h3>Exploiter et sécuriser les données</h3>
+                        <p>Centralisation du stockage, bases de données, Big Data et intégrité.</p>
+                        <div class="tech-tags">
+                            <span>Bases SQL / NoSQL</span>
+                            <span>TrueNAS / Stockage Réseau</span>
+                            <span>Big Data Concepts</span>
+                            <span>Sauvegarde (Veeam/PBS)</span>
+                            <span>Plans de PRA/PCA</span>
+                        </div>
+                    </div>
+
+                    <!-- Perf & Sécu -->
+                    <div class="skill-card glass-panel">
+                        <div class="skill-icon neon-blue">🛡️</div>
+                        <h3>Assurer la performance et la sécurité</h3>
+                        <p>Supervision proactive, protection avancée et audit d'infrastructure globale.</p>
+                        <div class="tech-tags">
+                            <span>Firewalls (pfSense/Fortinet)</span>
+                            <span>VPN (OpenVPN/IPsec)</span>
+                            <span>Zabbix / Nagios</span>
+                            <span>Audit & Pentest SI</span>
+                            <span>ITIL v4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <div class="glass-panel text-center">
+                    <h2 class="section-title" style="margin-bottom: 2rem;">🏆 Mes Certifications</h2>
+                    <div class="tech-tags justify-center" style="gap: 1.5rem;">
+                        <a href="https://www.credly.com/badges/e7029a5f-89c4-4a47-9326-652bb4211c29" target="_blank"
+                            style="text-decoration: none; display: inline-block;">
+                            <span style="font-size: 1rem; padding: 0.8rem 1.5rem;">🔗 Présentation des Réseaux</span>
+                        </a>
+                        <a href="https://www.credly.com/badges/d6a1c811-3012-4d15-955f-a26a1d7a959a" target="_blank"
+                            style="text-decoration: none; display: inline-block;">
+                            <span style="font-size: 1rem; padding: 0.8rem 1.5rem;">🔗 Switching, Routing and Wireless
+                                Essential</span>
+                        </a>
+                        <a href="https://www.credly.com/badges/efd11c48-f893-4cff-a0ca-b43b0347c57a" target="_blank"
+                            style="text-decoration: none; display: inline-block;">
+                            <span style="font-size: 1rem; padding: 0.8rem 1.5rem;">🔗 Entreprise Networking, Security
+                                and Automation</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parcours (Expériences & Formations) -->
+        <section id="parcours" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Parcours <span class="highlight">Académique & Professionnel</span></h2>
+                    <p class="section-subtitle">Mon évolution et mes diplômes depuis 2018</p>
+                </div>
+
+                <div class="projects-timeline">
+                    <!-- Expérience 1 -->
+                    <div class="project-item left">
+                        <div class="project-content glass-panel glow-border-blue">
+                            <span class="project-date">2025</span>
+                            <h3>Agents Commercial - ECOBANK (Dakar)</h3>
+                            <p>Chargé de la vente d'assurance à des particuliers utilisant l'opérateur Xpress.</p>
+                            <ul class="project-features">
+                                <li>Mise en place de Plan de Reprise d'Activité (PRA) pour les particuliers.</li>
+                                <li>Plan de continuité en cas de sinistre (vol, incendie, etc).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Formation 1 -->
+                    <div class="project-item right">
+                        <div class="project-content glass-panel glow-border-pink">
+                            <span class="project-date">Depuis 2024</span>
+                            <h3>Master 2 en Réseaux des SI (RESI)</h3>
+                            <p>Groupe ISI Dakar</p>
+                            <ul class="project-features">
+                                <li>Expertise systèmes et infrastructures réseaux</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Expérience 2 -->
+                    <div class="project-item left">
+                        <div class="project-content glass-panel glow-border-green">
+                            <span class="project-date">2023</span>
+                            <h3>Professeur en Bureautique - EMUTECH (Thies)</h3>
+                            <p>Conception et pédagogie autour des outils informatiques fondamentaux.</p>
+                            <ul class="project-features">
+                                <li>Mise en place de programmes personnalisés selon le niveau.</li>
+                                <li>Évaluations régulières et ateliers pratiques.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Formation 2 -->
+                    <div class="project-item right">
+                        <div class="project-content glass-panel glow-border-purple">
+                            <span class="project-date">2019 - 2023</span>
+                            <h3>Licence en informatique</h3>
+                            <p>Université Numérique Cheikh Hamidou Kane (Thies)<br> Mention Assez Bien.</p>
+                            <ul class="project-features">
+                                <li>Développement d’application mobile et web</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Formation 3 -->
+                    <div class="project-item left">
+                        <div class="project-content glass-panel glow-border-blue">
+                            <span class="project-date">2018 - 2019</span>
+                            <h3>Baccalauréat série L2</h3>
+                            <p>Lycée El Hadji Malick Sy (Thies)<br>Mention Passable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projets" class="section dark-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Projets <span class="highlight">Scolaires & Réalisations</span></h2>
+                    <p class="section-subtitle">Exemples pratiques d'architectures et d'infrastructures montées.</p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- Projet 1 -->
+                    <div class="glass-panel hover-scale project-card-padded">
+                        <span class="project-date project-date-block project-border-blue project-bg-blue">VMWare
+                            ESXi</span>
+                        <h3 class="project-title blue">Datacenter Virtuel</h3>
+                        <p class="project-desc">Mise en place d'une infrastructure complète sur Dell R610 et switch
+                            C2900.</p>
+                        <ul class="project-features small-text">
+                            <li>Création RAID-5 avec 6 disques.</li>
+                            <li>Installation hyperviseur ESXI 6.5.</li>
+                            <li>VM Windows Serveur configurée en ADDS.</li>
+                            <li>Intégration au domaine.</li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn btn-secondary open-project-modal" data-project="vmware"
+                                style="font-size: 0.85rem; padding: 0.5rem 1rem;">Voir les détails <span
+                                    class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Projet 2 -->
+                    <div class="glass-panel hover-scale project-card-padded">
+                        <span class="project-date project-date-block project-border-pink project-bg-pink">Proxmox
+                            VE</span>
+                        <h3 class="project-title pink">Datacenter & Backup</h3>
+                        <p class="project-desc">Solutions de haute disponibilité et plan de sauvegarde avancé.</p>
+                        <ul class="project-features small-text">
+                            <li>Cluster haute disponibilité Proxmox VE.</li>
+                            <li>Configuration Proxmox Backup Server (PBS).</li>
+                            <li>Migration de VM depuis VMware ESXi.</li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn btn-secondary open-project-modal" data-project="proxmox"
+                                style="font-size: 0.85rem; padding: 0.5rem 1rem;">Voir les détails <span
+                                    class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Projet 3 -->
+                    <div class="glass-panel hover-scale project-card-padded">
+                        <span
+                            class="project-date project-date-block project-border-purple project-bg-purple">TrueNAS</span>
+                        <h3 class="project-title purple">Dispositif NAS</h3>
+                        <p class="project-desc">Centralisation sécurisée du stockage d'entreprise.</p>
+                        <ul class="project-features small-text">
+                            <li>Installation TrueNAS Core v13.</li>
+                            <li>Dataset, partage et permissions utilisateurs.</li>
+                            <li>Accès distant via OpenVPN.</li>
+                            <li>Snapshots réguliers planifiés.</li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn btn-secondary open-project-modal" data-project="truenas"
+                                style="font-size: 0.85rem; padding: 0.5rem 1rem;">Voir les détails <span
+                                    class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Projet 4 -->
+                    <div class="glass-panel hover-scale project-card-padded">
+                        <span class="project-date project-date-block project-border-green project-bg-green">Flutter
+                            Dev</span>
+                        <h3 class="project-title green">Application Mobile</h3>
+                        <p class="project-desc">Développement d'une application frontend interactive.</p>
+                        <ul class="project-features small-text">
+                            <li>Expérience utilisateur fluide (Onboarding).</li>
+                            <li>Authentification chiffrée.</li>
+                            <li>Navigation et interaction de l'interface.</li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn btn-secondary open-project-modal" data-project="flutter"
+                                style="font-size: 0.85rem; padding: 0.5rem 1rem;">Voir les détails <span
+                                    class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-wrapper glass-panel">
+                    <div class="contact-info">
+                        <h2>Établir un <span class="highlight">Contact</span></h2>
+                        <p>N'hésitez pas à me joindre pour des opportunités, des projets ou collaborer ensemble.</p>
+
+                        <div class="contact-details mb-lg">
+                            <div class="contact-item">
+                                <span class="icon">📍</span>
+                                <div>
+                                    <span class="label">Adresse</span>
+                                    <span>Derklé, Cité Marguerite villa N°54, Dakar</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">📧</span>
+                                <div>
+                                    <span class="label">Email</span>
+                                    <a href="mailto:bara.ndiaye0124@gmail.com">bara.ndiaye0124@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">📞</span>
+                                <div>
+                                    <span class="label">Téléphone</span>
+                                    <a href="tel:+221785241120">+221 78 524 11 20</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">🔗</span>
+                                <div>
+                                    <span class="label">LinkedIn</span>
+                                    <a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.linkedin.com/in/bara-mamadou-lamine-ndiaye-a34606220">Bara
+                                        Mamadou Lamine NDIAYE</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">🐙</span>
+                                <div>
+                                    <span class="label">GitHub</span>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/Bara-hub">Mon
+                                        GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal specifics -->
+                        <div class="tech-tags tech-tags-gap">
+                            <span>🎂 25 ans</span>
+                            <span>🇸🇳 Sénégalais</span>
+                            <span>🚗 Permis A1 & B</span>
+                        </div>
+                        <div class="tech-tags tech-tags-gap mt-sm">
+                            <span>🗣️ Wolof</span>
+                            <span>🇫🇷 Français</span>
+                            <span>🇬🇧 Anglais</span>
+                        </div>
+                        <div class="tech-tags tech-tags-gap mt-sm">
+                            <span>🏀 Sport (équipe)</span>
+                            <span>📚 Lecture</span>
+                            <span>🤝 Bénévolat</span>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row mb-md">
+                            <div class="form-group flex-1 m-0">
+                                <label for="firstname">Prénom</label>
+                                <input type="text" id="firstname" required placeholder="Votre prénom">
+                            </div>
+                            <div class="form-group flex-1 m-0">
+                                <label for="lastname">Nom</label>
+                                <input type="text" id="lastname" required placeholder="Votre nom">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre Email</label>
+                            <input type="email" id="email" required placeholder="adresse@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required placeholder="Objet de votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                            Envoyer le message <span class="loader hidden"></span>
+                        </button>
+                        <p id="formStatus" style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.85rem;">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <a href="#accueil" class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <span class="arrow">↑</span>
+    </a>
+
+    <footer>
+        <div class="container text-center mb-md">
+            <p class="footer-quote">
+                "Stating that money doesn't buy happiness, but rather 'crazy ass happiness'"
+            </p>
+        </div>
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Bara Mamadou Lamine NDIAYE. Portfolio développé par biggie.</p>
+            <div class="status-indicator">
+                <span class="pulse-dot"></span> Prêt à l'emploi
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="close-modal" aria-label="Fermer">&times;</button>
+            <div id="modalBody" class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button is handled by the unified anchor -->
+
+    <script defer src="js/script.js"></script>
+</body>
+
+</html>
