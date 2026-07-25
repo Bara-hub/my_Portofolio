@@ -61,7 +61,9 @@
                     <div class="terminal-body">
                         <p class="command">> whoami</p>
                         <h1 class="main-title">Bara Mamadou <span class="gradient-text">Lamine NDIAYE</span></h1>
-                        <p class="subtitle">Administrateur Réseaux & Systèmes Informatiques Junior | Ingénieur Cloud & Virtualisation</p>
+                        <p class="subtitle" id="typing-container">
+                            <span id="typing-text"></span><span class="cursor">|</span>
+                        </p>
                         <p class="description">
                             Administrateur Réseaux et Systèmes Informatiques junior dynamique, doté d'une
                             solide expertise en virtualisation (VMware ESXi, Proxmox VE) et en gestion de
@@ -71,22 +73,48 @@
                             poste stimulant pour concevoir et maintenir des systèmes robustes, contribuant
                             activement à la performance et à la sécurité des réseaux d'entreprise.
                         </p>
-                        <!-- Atouts and soft skills quickly highlighted -->
-                        <div class="tech-tags mb-lg">
-                            <span>🧩 Résolution de problèmes complexes</span>
-                            <span>📢 Communication technique & pédagogie</span>
-                            <span>🤝 Travail d'équipe & collaboration</span>
-                            <span>⚡ Adaptabilité & apprentissage rapide</span>
-                            <span>📅 Gestion de projet & organisation</span>
+                        <!-- Atouts and soft skills -->
+                        <div class="soft-skills-container mb-lg">
+                            <span class="soft-skill-tag">
+                                <svg class="tag-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Résolution de problèmes complexes
+                            </span>
+                            <span class="soft-skill-tag">
+                                <svg class="tag-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Communication & Pédagogie
+                            </span>
+                            <span class="soft-skill-tag">
+                                <svg class="tag-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Travail d'équipe & Collaboration
+                            </span>
+                            <span class="soft-skill-tag">
+                                <svg class="tag-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Adaptabilité & Apprentissage rapide
+                            </span>
                         </div>
 
                         <div class="hero-actions">
                             <a href="#projets" class="btn btn-primary">Explorer mes projets <span
                                     class="arrow">→</span></a>
                             <a href="#contact" class="btn btn-secondary">Me contacter</a>
-                            <a href="cv/CV_Bara%20Mamadou%20Lamine_NDIAYE%20(1).pdf" target="_blank" class="btn btn-secondary"
-                                style="border-color: var(--neon-pink); color: var(--neon-pink);">📄 Télécharger mon
-                                CV</a>
+                            <a href="cv/CV_Bara%20Mamadou%20Lamine_NDIAYE%20(1).pdf" target="_blank" class="btn btn-cv">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Télécharger mon CV
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +132,14 @@
                 <div class="skills-grid">
                     <!-- Systèmes & Réseaux -->
                     <div class="skill-card glass-panel">
-                        <div class="skill-icon neon-blue">🏢</div>
+                        <div class="skill-icon neon-blue">
+                            <svg class="skill-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg>
+                        </div>
                         <h3>Systèmes & Services Réseaux</h3>
                         <p>Gestion avancée des environnements serveurs, administration d'Active Directory et protocoles réseaux.</p>
                         <div class="tech-tags">
@@ -119,7 +154,13 @@
 
                     <!-- Virtualisation & Conteneurs -->
                     <div class="skill-card glass-panel">
-                        <div class="skill-icon neon-pink">⚙️</div>
+                        <div class="skill-icon neon-pink">
+                            <svg class="skill-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
                         <h3>Virtualisation & Conteneurisation</h3>
                         <p>Déploiement et administration de datacenters virtuels et d'architectures conteneurisées hautement disponibles.</p>
                         <div class="tech-tags">
@@ -132,7 +173,11 @@
 
                     <!-- Cloud Computing -->
                     <div class="skill-card glass-panel">
-                        <div class="skill-icon neon-purple">☁️</div>
+                        <div class="skill-icon neon-purple">
+                            <svg class="skill-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                            </svg>
+                        </div>
                         <h3>Cloud Computing</h3>
                         <p>Conception, administration et déploiement d'architectures sur les principaux Cloud publics.</p>
                         <div class="tech-tags">
@@ -144,7 +189,11 @@
 
                     <!-- Stockage, Sécurité & VPN -->
                     <div class="skill-card glass-panel">
-                        <div class="skill-icon neon-green">💾</div>
+                        <div class="skill-icon neon-green">
+                            <svg class="skill-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
                         <h3>Stockage & Sécurité Réseau</h3>
                         <p>Solutions de stockage centralisé, résilience des données, firewalls et liaisons privées sécurisées.</p>
                         <div class="tech-tags">
@@ -159,7 +208,12 @@
 
                     <!-- DevOps & Supervision -->
                     <div class="skill-card glass-panel">
-                        <div class="skill-icon neon-blue">🛡️</div>
+                        <div class="skill-icon neon-blue">
+                            <svg class="skill-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                         <h3>DevOps & Supervision</h3>
                         <p>Scripting système, automatisation IaC et supervision proactive de la santé du SI.</p>
                         <div class="tech-tags">
@@ -177,24 +231,69 @@
 
         <!-- Certifications Section -->
         <section id="certifications" class="section">
-            <div class="container">
-                <div class="glass-panel text-center">
-                    <h2 class="section-title" style="margin-bottom: 2rem;">🏆 Mes Certifications</h2>
-                    <div class="tech-tags justify-center" style="gap: 1.5rem;">
-                        <a href="https://www.credly.com/badges/e7029a5f-89c4-4a47-9326-652bb4211c29" target="_blank"
-                            style="text-decoration: none; display: inline-block;">
-                            <span style="font-size: 1rem; padding: 0.8rem 1.5rem;">🔗 Présentation des Réseaux</span>
-                        </a>
-                        <a href="https://www.credly.com/badges/d6a1c811-3012-4d15-955f-a26a1d7a959a" target="_blank"
-                            style="text-decoration: none; display: inline-block;">
-                            <span style="font-size: 1rem; padding: 0.8rem 1.5rem;">🔗 Switching, Routing and Wireless
-                                Essential</span>
-                        </a>
-                        <a href="https://www.credly.com/badges/efd11c48-f893-4cff-a0ca-b43b0347c57a" target="_blank"
-                            style="text-decoration: none; display: inline-block;">
-                            <span style="font-size: 1rem; padding: 0.8rem 1.5rem;">🔗 Entreprise Networking, Security
-                                and Automation</span>
-                        </a>
+            <div class="container container-lg">
+                <div class="section-heading">
+                    <h2 class="section-title">🏆 Certifications <span class="highlight">Officielles</span></h2>
+                    <p class="section-subtitle">Titres validés et badges de compétences académiques</p>
+                </div>
+
+                <div class="certifications-grid">
+                    <!-- Cert 1 -->
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <svg class="cert-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                            <h3 class="cert-name">Introduction to Networks</h3>
+                            <p class="cert-desc">Configuration des commutateurs et routeurs, architecture réseau IP, protocoles de communication de base.</p>
+                            <a href="https://www.credly.com/badges/e7029a5f-89c4-4a47-9326-652bb4211c29" target="_blank" class="btn btn-cert">
+                                <span>Vérifier le badge</span>
+                                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <svg class="cert-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                            <h3 class="cert-name">Switching, Routing, and Wireless Essentials</h3>
+                            <p class="cert-desc">Configuration des VLANs, routage inter-VLAN, protocoles DHCP, STP, EtherChannel et réseaux sans fil.</p>
+                            <a href="https://www.credly.com/badges/d6a1c811-3012-4d15-955f-a26a1d7a959a" target="_blank" class="btn btn-cert">
+                                <span>Vérifier le badge</span>
+                                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <svg class="cert-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                            <h3 class="cert-name">Enterprise Networking, Security, and Automation</h3>
+                            <p class="cert-desc">Architecture WAN, protocoles OSPF, concepts de sécurité réseau (ACLs, VPNs), virtualisation et automatisation.</p>
+                            <a href="https://www.credly.com/badges/efd11c48-f893-4cff-a0ca-b43b0347c57a" target="_blank" class="btn btn-cert">
+                                <span>Vérifier le badge</span>
+                                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -454,13 +553,13 @@
     <footer>
         <div class="container text-center mb-md">
             <p class="footer-quote">
-                "Stating that money doesn't buy happiness, but rather 'crazy ass happiness'"
+                "Concevoir des infrastructures fiables, automatiser pour simplifier, sécuriser pour pérenniser."
             </p>
         </div>
         <div class="container footer-content">
-            <p>&copy; <span id="year"></span> Bara Mamadou Lamine NDIAYE. Portfolio développé par biggie.</p>
+            <p>&copy; <span id="year"></span> Bara Mamadou Lamine NDIAYE. Portfolio professionnel | Tous droits réservés.</p>
             <div class="status-indicator">
-                <span class="pulse-dot"></span> Prêt à l'emploi
+                <span class="pulse-dot"></span> SI Opérationnel
             </div>
         </div>
     </footer>

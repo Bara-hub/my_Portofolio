@@ -199,18 +199,17 @@ class TechBackground {
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext("2d");
 
-    // Jeu de caractères orienté IT/Réseau
-    this.characters =
-      "0 1 0 1 0X FF A4 C9 SYS NET ACK SYN TCP UDP IP DNS SSH".split(" ");
-    this.fontSize = 14;
-    this.columns = 0;
-    this.drops = [];
-    this.colors = ["#00f3ff", "#00ff88", "#ff00ea", "#9d00ff"]; // Thème néon
+    this.nodes = [];
+    this.maxNodes = 65;
+    this.connectionDist = 130;
+    this.mouse = { x: null, y: null, radius: 150 };
 
     this.init();
     this.animate();
 
     window.addEventListener("resize", () => this.resize());
+    window.addEventListener("mousemove", (e) => this.mouseMove(e));
+    window.addEventListener("mouseout", () => this.mouseOut());
   }
 
   init() {
@@ -220,57 +219,157 @@ class TechBackground {
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    this.columns = Math.floor(this.canvas.width / this.fontSize);
-
-    // Initialiser la position Y des gouttes (aléatoire au-dessus de l'écran)
-    this.drops = [];
-    for (let x = 0; x < this.columns; x++) {
-      this.drops[x] = Math.random() * -100;
+    
+    // Adapter la densité selon la taille de l'écran
+    if (window.innerWidth < 768) {
+      this.maxNodes = 25;
+      this.connectionDist = 80;
+    } else {
+      this.maxNodes = 65;
+      this.connectionDist = 130;
     }
+    this.createNodes();
   }
 
-  draw() {
-    // Effet de traînée en peignant un fond noir semi-transparent
-    this.ctx.fillStyle = "rgba(7, 9, 15, 0.15)";
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  mouseMove(e) {
+    this.mouse.x = e.clientX;
+    this.mouse.y = e.clientY;
+  }
 
-    this.ctx.font = this.fontSize + 'px "Fira Code", monospace';
+  mouseOut() {
+    this.mouse.x = null;
+    this.mouse.y = null;
+  }
 
-    for (let i = 0; i < this.drops.length; i++) {
-      // Sélectionner un caractère et une couleur aléatoire
-      const text =
-        this.characters[Math.floor(Math.random() * this.characters.length)];
-      this.ctx.fillStyle =
-        this.colors[Math.floor(Math.random() * this.colors.length)];
-
-      // Ajouter un effet de brillance aléatoire
-      if (Math.random() > 0.9) {
-        this.ctx.fillStyle = "#ffffff"; // Éclat blanc occasionnel
-      }
-
-      // Dessiner le texte
-      this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
-
-      // Réinitialiser la goutte en haut aléatoirement
-      if (
-        this.drops[i] * this.fontSize > this.canvas.height &&
-        Math.random() > 0.975
-      ) {
-        this.drops[i] = 0;
-      }
-
-      // Faire descendre la goutte
-      this.drops[i]++;
+  createNodes() {
+    this.nodes = [];
+    const colors = ["#00d2ff", "#a855f7", "#10b981"]; // Cyan, Violet, Vert émeraude
+    for (let i = 0; i < this.maxNodes; i++) {
+      this.nodes.push({
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 2 + 1,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.3 + 0.15
+      });
     }
   }
 
   animate() {
-    this.draw();
-    // Ralentir l'animation pour un meilleur effet visuel (Matrix style)
-    setTimeout(() => {
-      requestAnimationFrame(() => this.animate());
-    }, 50);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // Dessiner les connexions d'abord
+    for (let i = 0; i < this.nodes.length; i++) {
+      const n1 = this.nodes[i];
+
+      // Liaisons inter-nœuds
+      for (let j = i + 1; j < this.nodes.length; j++) {
+        const n2 = this.nodes[j];
+        const dx = n1.x - n2.x;
+        const dy = n1.y - n2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < this.connectionDist) {
+          const alpha = (1 - dist / this.connectionDist) * 0.12;
+          this.ctx.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
+          this.ctx.lineWidth = 0.8;
+          this.ctx.beginPath();
+          this.ctx.moveTo(n1.x, n1.y);
+          this.ctx.lineTo(n2.x, n2.y);
+          this.ctx.stroke();
+        }
+      }
+
+      // Liaisons avec la souris
+      if (this.mouse.x !== null) {
+        const dxMouse = n1.x - this.mouse.x;
+        const dyMouse = n1.y - this.mouse.y;
+        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+        if (distMouse < this.mouse.radius) {
+          const alpha = (1 - distMouse / this.mouse.radius) * 0.2;
+          this.ctx.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
+          this.ctx.lineWidth = 1;
+          this.ctx.beginPath();
+          this.ctx.moveTo(n1.x, n1.y);
+          this.ctx.lineTo(this.mouse.x, this.mouse.y);
+          this.ctx.stroke();
+
+          // Force d'attraction subtile
+          n1.x -= dxMouse * 0.01;
+          n1.y -= dyMouse * 0.01;
+        }
+      }
+
+      // Déplacer et rebondir
+      n1.x += n1.vx;
+      n1.y += n1.vy;
+
+      if (n1.x < 0 || n1.x > this.canvas.width) n1.vx *= -1;
+      if (n1.y < 0 || n1.y > this.canvas.height) n1.vy *= -1;
+
+      // Dessiner le nœud
+      this.ctx.fillStyle = n1.color;
+      this.ctx.globalAlpha = n1.alpha;
+      this.ctx.beginPath();
+      this.ctx.arc(n1.x, n1.y, n1.radius, 0, Math.PI * 2);
+      this.ctx.fill();
+    }
+    this.ctx.globalAlpha = 1.0;
+
+    requestAnimationFrame(() => this.animate());
   }
+}
+
+// ==========================================================================
+// Typing Effect for Hero
+// ==========================================================================
+function initTypingEffect() {
+  const textEl = document.getElementById("typing-text");
+  if (!textEl) return;
+
+  const words = [
+    "Administrateur Réseaux & Systèmes Informatiques Junior",
+    "Ingénieur Cloud & Virtualisation",
+    "Passionné par l'Automatisation, l'IaC et DevOps",
+    "Spécialiste de la Sécurité Réseau & Système"
+  ];
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentWord = words[wordIndex];
+    if (isDeleting) {
+      textEl.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      textEl.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let typeSpeed = 70;
+
+    if (isDeleting) {
+      typeSpeed /= 2.5; // Efface plus vite
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      typeSpeed = 2500; // Pause à la fin du mot
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      typeSpeed = 400; // Pause avant le mot suivant
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  type();
 }
 
 // ==========================================================================
@@ -342,9 +441,10 @@ const projectDetails = {
 };
 
 // ==========================================================================
-// Initialization (all DOMContentLoaded logic consolidated)
+// Initialization
 // ==========================================================================
 initScrollAnimations();
+initTypingEffect();
 new TechBackground();
 
 // Projects Modal Logic
