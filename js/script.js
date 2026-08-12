@@ -392,7 +392,7 @@ function initTypingEffect() {
     "Administrateur Réseaux & Systèmes Informatiques Junior",
     "Ingénieur Cloud & Virtualisation",
     "Passionné par l'Automatisation, l'IaC et DevOps",
-    "Spécialiste de la Sécurité Réseau & Système"
+    ""
   ];
 
   let wordIndex = 0;
