@@ -104,6 +104,17 @@ if (contactForm) {
     const statusEl = document.getElementById("formStatus");
     const originalText = btn.innerHTML;
 
+    // Validation d'email locale côté client
+    const emailInput = document.getElementById("email");
+    const emailValue = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailValue)) {
+      statusEl.textContent = "❌ Veuillez entrer une adresse email valide.";
+      statusEl.style.color = "#ff00ea";
+      emailInput.focus();
+      return;
+    }
+
     // Disable button during send
     btn.innerHTML = "Envoi des paquets... 📡";
     btn.style.opacity = "0.7";
@@ -114,7 +125,7 @@ if (contactForm) {
     const templateParams = {
       firstname: document.getElementById("firstname").value,
       lastname: document.getElementById("lastname").value,
-      email: document.getElementById("email").value,
+      email: emailValue,
       message: document.getElementById("message").value,
     };
 
@@ -203,13 +214,62 @@ class TechBackground {
     this.maxNodes = 65;
     this.connectionDist = 130;
     this.mouse = { x: null, y: null, radius: 150 };
+    this.animationFrameId = null;
+    this.isActive = false;
+    this.isHeroVisible = true;
 
     this.init();
-    this.animate();
 
     window.addEventListener("resize", () => this.resize());
     window.addEventListener("mousemove", (e) => this.mouseMove(e));
     window.addEventListener("mouseout", () => this.mouseOut());
+
+    // Écouteur de visibilité de l'onglet (Page Visibility API)
+    document.addEventListener("visibilitychange", () => {
+      this.updateAnimationState(!document.hidden, this.isHeroVisible);
+    });
+
+    // Écouteur de visibilité du Hero (#accueil) (Intersection Observer API)
+    const heroSection = document.getElementById("accueil");
+    if (heroSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          this.isHeroVisible = entry.isIntersecting;
+          this.updateAnimationState(!document.hidden, this.isHeroVisible);
+        });
+      }, { threshold: 0.01 });
+      observer.observe(heroSection);
+    } else {
+      // Par défaut, si l'élément n'existe pas, on lance l'animation
+      this.updateAnimationState(true, true);
+    }
+  }
+
+  updateAnimationState(isDocumentVisible, isHeroVisible) {
+    const shouldPlay = isDocumentVisible && isHeroVisible;
+    if (shouldPlay && !this.animationFrameId) {
+      this.start();
+    } else if (!shouldPlay && this.animationFrameId) {
+      this.stop();
+    }
+  }
+
+  start() {
+    this.isActive = true;
+    const loop = () => {
+      if (!this.isActive) return;
+      this.animate();
+      this.animationFrameId = requestAnimationFrame(loop);
+    };
+    this.animationFrameId = requestAnimationFrame(loop);
+  }
+
+  stop() {
+    this.isActive = false;
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+    }
   }
 
   init() {
@@ -318,8 +378,6 @@ class TechBackground {
       this.ctx.fill();
     }
     this.ctx.globalAlpha = 1.0;
-
-    requestAnimationFrame(() => this.animate());
   }
 }
 
